@@ -25,11 +25,17 @@
 .row::before,
 .row::after {
   display: table;
-  content: '';
+  content: ''; /*The first ruleset forces the height of each row to 
+              expand to the height of its tallest child element. 
+              That means that rows will vertically contain all their content.*/
 }
 
 .row::after {
-  clear: both;
+  clear: both; /*The second ruleset, with 'clear: both;', is a clearfix, 
+                and it ensures that any content that comes after the 
+                row will act as though the preceding row was in the normal 
+                flow, instead of butting up against the top of the row container.
+                */
 }
 
 .col-3, .col-4, .col-6, .col-12 {
@@ -59,15 +65,18 @@
   }
 
   /* 4 columns */
-  .col-4 {
+  .col-4 { 
+    width:33.33%;
   }
 
   /* 6 columns */
   .col-6 {
+    width: 50%;
 
   }
 
   /* 12 columns */
   .col-12 {
+    width: 100%
   }
 }
